@@ -1,0 +1,89 @@
+import React, { useState, useEffect } from "react";
+import {Container, Row, Col, Table, Button, Spinner } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashAlt, faEdit } from "@fortawesome/free-solid-svg-icons";
+import Sidebar from "../Sidebar/Sidebar";
+
+const ManageServices = () => {
+  const [services, setServices] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [deleted, setDeleted] = useState(false);
+  useEffect(() => {
+    fetch("http://localhost:5050/services")
+      .then((res) => res.json())
+      .then((data) => {
+        setServices(data);
+        setIsLoading(false);
+      });
+  }, [services]);
+
+  const handleDelete = (id) => {
+    fetch(`http://localhost:5050/delete/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        if(result){
+          setDeleted(true);
+        } 
+      });
+  };
+
+  return (
+    <Container>
+      <Row>
+        <Col sm={4}>
+          <Sidebar/>
+        </Col>
+        <Col sm={8}>
+        {isLoading ? (
+        <div className="d-flex align-items-center justify-content-center loader">
+          <Spinner animation="border" variant="danger" />
+        </div>
+      ) : (
+        <>
+          <h3 className="mb-4">Manage Services</h3>
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>Service Title</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th className="text-center">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {services.map((service) => (
+                <tr key={service._id}>
+                  <td>{service.title}</td>
+                  <td>{service.description}</td>
+                  <td>${service.price}</td>
+                  <td className="text-center">
+                    <Button className="elec-btn">
+                      <FontAwesomeIcon icon={faEdit} />
+                    </Button>
+                    <Button
+                      className="ml-2 elec-btn"
+                      onClick={() => handleDelete(`${service._id}`)}
+                    >
+                      <FontAwesomeIcon icon={faTrashAlt} />
+                    </Button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+          {deleted && <p className="text-success w-100 text-center my-3">Services deleted Successfully</p>}
+        </>
+      )}
+        </Col>
+      </Row>
+     
+    </Container>
+  );
+};
+
+export default ManageServices;

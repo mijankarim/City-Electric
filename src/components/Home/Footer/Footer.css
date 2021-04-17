@@ -1,0 +1,14 @@
+footer {
+  background: #034170;
+  padding: 80px 0 30px;
+}
+
+.footer-links {
+  margin-left: 0;
+  padding-left:0;
+  list-style: none;
+}
+
+.footer-links a {
+  color: #fff;
+}
