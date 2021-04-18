@@ -35,7 +35,7 @@ const AddService = () => {
         description: data.serviceDescription,
         image: imageURL,
       };
-      const url = `http://localhost:5050/addService`;
+      const url = `https://glacial-headland-56185.herokuapp.com/addService`;
       fetch(url, {
         method: "POST",
         headers: {
