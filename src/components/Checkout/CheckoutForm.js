@@ -71,7 +71,7 @@ const CheckoutForm = ({ service }) => {
       paymentId: paymentSuccess 
     };
 
-      fetch("http://localhost:5050/addOrder", {
+      fetch("https://glacial-headland-56185.herokuapp.com/addOrder", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

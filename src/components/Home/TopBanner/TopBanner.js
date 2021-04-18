@@ -16,7 +16,7 @@ const TopBanner = () => {
                 We Provide Electrical Services For Industrial Projects.
               </h4>
               <div className="city-btns-group">
-                <a href="" className="btn-one city-btn">
+                <a href="/" className="btn-one city-btn">
                   <span className="btn-text-wrap">
                     <span className="btn-text font-weight-bold">Contact Us Today</span>
                   </span>

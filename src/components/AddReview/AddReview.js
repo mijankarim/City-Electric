@@ -18,7 +18,7 @@ const AddReview = () => {
       description: data.description,
       image: loggedInUser.image
     };
-    const url = `http://localhost:5050/addReview`;
+    const url = `https://glacial-headland-56185.herokuapp.com/addReview`;
     fetch(url, {
       method: "POST",
       headers: {

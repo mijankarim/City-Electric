@@ -9,7 +9,7 @@ const ManageServices = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [deleted, setDeleted] = useState(false);
   useEffect(() => {
-    fetch("http://localhost:5050/services")
+    fetch("https://glacial-headland-56185.herokuapp.com/services")
       .then((res) => res.json())
       .then((data) => {
         setServices(data);
@@ -18,7 +18,7 @@ const ManageServices = () => {
   }, [services]);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5050/delete/${id}`, {
+    fetch(`https://glacial-headland-56185.herokuapp.com/delete/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

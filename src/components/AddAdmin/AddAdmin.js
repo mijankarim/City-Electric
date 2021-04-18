@@ -13,7 +13,7 @@ const AddAdmin = () => {
     const adminData = {
       email: data.email,
     };
-    const url = `http://localhost:5050/addAdmin`;
+    const url = `https://glacial-headland-56185.herokuapp.com/addAdmin`;
     fetch(url, {
       method: "POST",
       headers: {

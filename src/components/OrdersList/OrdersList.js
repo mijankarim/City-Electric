@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
 import { Container, Row, Col, Table, Spinner } from "react-bootstrap";
-import Order from "../Order/Order";
 import { UserContext } from "../../App";
 import Sidebar from "../Sidebar/Sidebar";
 
@@ -11,7 +10,7 @@ const OrdersList = () => {
   const { userName, email } = loggedInUser;
 
   useEffect(() => {
-    fetch(`http://localhost:5050/ordersList`)
+    fetch(`https://glacial-headland-56185.herokuapp.com/ordersList`)
       .then((res) => res.json())
       .then((data) => {
         setOrders(data);

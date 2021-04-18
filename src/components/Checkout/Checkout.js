@@ -14,7 +14,7 @@ const Checkout = () => {
     const [success, setSuccess] = useState(false);
 
     useEffect(() => {
-        fetch(`http://localhost:5050/service/${id}`)
+        fetch(`https://glacial-headland-56185.herokuapp.com/service/${id}`)
           .then((res) => res.json())
           .then((data) => {
             setService(data);

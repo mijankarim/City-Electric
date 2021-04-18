@@ -10,7 +10,7 @@ const Testimonials = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5050/reviews")
+    fetch("https://glacial-headland-56185.herokuapp.com/reviews")
       .then((res) => res.json())
       .then((data) => {
         setTestimonials(data);
