@@ -23,7 +23,7 @@ const AddService = () => {
           setUploading("Image uploaded Successfully!");
         })
         .catch((error) => {
-          console.log(error);
+          
         });
     };
   

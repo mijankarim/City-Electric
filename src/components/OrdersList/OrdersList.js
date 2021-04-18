@@ -16,12 +16,10 @@ const OrdersList = () => {
       .then((data) => {
         setOrders(data);
         setIsLoading(false);
-        console.log(data);
       });
   }, []);
 
   const handleChange = (id, e) => {
-    console.log(e.target.value);
     const newStatus = { status: e.target.value };
     fetch(`https://glacial-headland-56185.herokuapp.com/update/${id}`, {
       method: "PATCH",
@@ -74,16 +72,20 @@ const OrdersList = () => {
                           <tr key={index} index={index}>
                             <td>{parseInt(`${index}`) + 1}</td>
                             <td>
-                              <strong>Name</strong> : {order.userName}<br/>
+                              <strong>Name</strong> : {order.userName}
+                              <br />
                               <strong>Email</strong> : {order.email}
                             </td>
                             <td>
-                              <strong>Title</strong> : {order.title}<br/>
+                              <strong>Title</strong> : {order.title}
+                              <br />
                               <strong>Service Price</strong> : ${order.price}
                             </td>
                             <td>
-                              <strong>Payment Id</strong> : {order.paymentId}<br/>
-                              <strong>Card Brand</strong> : {order.cardBrand}<br/>
+                              <strong>Payment Id</strong> : {order.paymentId}
+                              <br />
+                              <strong>Card Brand</strong> : {order.cardBrand}
+                              <br />
                               <strong>Last 4 digit</strong> : {order.last4}
                             </td>
 
