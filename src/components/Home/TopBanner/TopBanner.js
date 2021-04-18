@@ -1,6 +1,6 @@
 import React from "react";
 import "./TopBanner.css";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 
 const TopBanner = () => {
   return (
@@ -16,11 +16,11 @@ const TopBanner = () => {
                 We Provide Electrical Services For Industrial Projects.
               </h4>
               <div className="city-btns-group">
-                <a href="/" className="btn-one city-btn">
+                <Button className="btn-one city-btn">
                   <span className="btn-text-wrap">
                     <span className="btn-text font-weight-bold">Contact Us Today</span>
                   </span>
-                </a>
+                </Button>
               </div>
             </div>
           </Col>

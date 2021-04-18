@@ -11,6 +11,10 @@ body {
   background: #F8F9FA;
 }
 
+.alternative-bg{
+  background: #F8F9FA;
+}
+
 .order-image{
   width:60px;
   margin:0 10px 10px 0;

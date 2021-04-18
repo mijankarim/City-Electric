@@ -5,16 +5,16 @@ import "./Testimonial.css";
 const Testimonial = (props) => {
   const { name, companyName, description, image } = props.testimonial;
   return (
-    <>
-      <p>"{description}"</p>
+    <div className="shadow p-3 mb-5 bg-body rounded">
+      <p className="mb-4">"{description}"</p>
       <div className="d-flex">
         <img src={image} alt={name} className="user-image" />
 
         <p>
-          {name} <br /> {companyName}
+          {name} <br /> <span className="author">{companyName}</span>
         </p>
       </div>
-    </>
+    </div>
   );
 };
 

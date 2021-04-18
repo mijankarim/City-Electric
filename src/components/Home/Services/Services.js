@@ -17,36 +17,35 @@ const Services = () => {
       });
   }, []);
   return (
-    <section className="services-container">
-       
-    <Container className="pt-3 pb-5 mb-5">
+    <section className="services-container alternative-bg">
+      <Container className="pt-3 pb-3">
         <Row>
-            <Col className="text-center my-5">
+          <Col className="text-center my-5">
             <p>Our Services</p>
             <h3>Services We provide</h3>
-            </Col>
+          </Col>
         </Row>
 
-      {isLoading ? (
-        <div className="d-flex align-items-center justify-content-center loader">
-          <Spinner animation="border" variant="danger" />
-        </div>
-      ) : (
-        <Row>
-          {services.length === 0 ? (
-            <div className="text-light text-center w-100 py-5">
-              <h3>No Services Found</h3>
-            </div>
-          ) : (
-            services.map((service) => (
-              <Col xs={12} sm={6} md={4} key={service._id}>
-                <Service service={service} />
-              </Col>
-            ))
-          )}
-        </Row>
-      )}
-    </Container>
+        {isLoading ? (
+          <div className="d-flex align-items-center justify-content-center loader">
+            <Spinner animation="border" variant="danger" />
+          </div>
+        ) : (
+          <Row>
+            {services.length === 0 ? (
+              <div className="text-light text-center w-100 py-5">
+                <h3>No Services Found</h3>
+              </div>
+            ) : (
+              services.map((service) => (
+                <Col xs={12} sm={6} md={4} key={service._id}>
+                  <Service service={service} />
+                </Col>
+              ))
+            )}
+          </Row>
+        )}
+      </Container>
     </section>
   );
 };

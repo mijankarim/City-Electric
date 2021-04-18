@@ -9,7 +9,7 @@ const Service = (props) => {
   const handleClick = () => history.push(`checkout/${id}`);
 
   return (
-    <div className="service">
+    <div className="service mb-5">
       <img src={image} alt={title} />
       <h4 className="my-3">{title}</h4>
       <p>$ {price}</p>

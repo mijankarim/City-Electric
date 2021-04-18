@@ -41,7 +41,7 @@ const News = () => {
         </Row>
         <Row>
           {newsData.map((news) => (
-            <Col sm={4} key={news.id}>
+            <Col sm={4} key={news.id} className="mb-5">
               <img src={news.image} alt="news.title" />
               <h4 className="mt-4">{news.title}</h4>
               <p>{news.content}</p>

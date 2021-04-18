@@ -12,7 +12,7 @@ const About = () => {
               <img src={about} alt="about"/>
           </Col>
           <Col sm={6}>
-            <h3>About Us</h3>
+            <h3 className="mb-4">About Us</h3>
             <p>
               <strong>
                 Our company specializes in electrical wiring and repair. We

@@ -18,7 +18,7 @@ const Testimonials = () => {
       });
   }, []);
   return (
-    <section className="testimonials-container">
+    <section className="testimonials-container alternative-bg">
       <Container className="pt-3 pb-5 mb-5">
         <Row>
           <Col className="text-center my-5">

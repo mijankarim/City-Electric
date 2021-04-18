@@ -63,7 +63,7 @@ const ManageServices = () => {
                       <td>${service.price}</td>
                       <td className="text-center">
                         <Button
-                          className="ml-2 elec-btn"
+                          className="ml-2"
                           onClick={() => handleDelete(`${service._id}`)}
                         >
                           <FaTrashAlt />
