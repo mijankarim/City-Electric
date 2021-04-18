@@ -60,6 +60,7 @@ function App() {
           <PrivateRoute path="/checkout/:id">
             <Checkout />
           </PrivateRoute>
+
         </Switch>
       </Router>
     </UserContext.Provider>
