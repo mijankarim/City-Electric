@@ -97,6 +97,7 @@ const OrdersList = () => {
                                 onChange={(e) => handleChange(order._id, e)}
                               >
                                 <option value={`${status}`}>{order.status}</option>
+                                <option value="Pending">Pending</option>
                                 <option value="Ongoing">Ongoing</option>
                                 <option value="Done">Done</option>
                               </select>
