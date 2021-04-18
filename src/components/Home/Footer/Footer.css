@@ -12,3 +12,23 @@ footer {
 .footer-links a {
   color: #fff;
 }
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.footer-social{
+  padding-left:0;
+  margin-top:5px;
+}
+
+.footer-social li{
+  list-style: none;
+  display: inline-block;
+  margin-right:18px;
+}
+
+.footer-social li a svg{
+  color:#fff;
+  font-size:18px;
+}

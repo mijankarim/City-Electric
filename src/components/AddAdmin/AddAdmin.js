@@ -32,12 +32,12 @@ const AddAdmin = () => {
   };
 
   return (
-    <Container>
+    <Container className="dashboard mt-5">
       <Row>
-        <Col sm={4}>
+        <Col sm={3}>
           <Sidebar />
         </Col>
-        <Col sm={8}>
+        <Col sm={9} className="py-5">
           <form onSubmit={handleSubmit(onSubmit)}>
             <Container>
               <Row>
@@ -45,7 +45,7 @@ const AddAdmin = () => {
               </Row>
               <Row className="mb-3">
                 <Col>
-                  <label>Email Address</label>
+                  <label>Email</label>
                   <br />
                   <input
                     className="form-control"
@@ -58,7 +58,7 @@ const AddAdmin = () => {
                 </Col>
               </Row>
 
-              <Button className="float-right my-3 food-btn" type="submit">
+              <Button className="my-3" type="submit">
                 Submit
               </Button>
               {success && (

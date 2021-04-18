@@ -3,8 +3,7 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from "./firebase.config";
 import { UserContext } from "../../App";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGoogle } from "@fortawesome/free-brands-svg-icons";
+import { FcGoogle } from "react-icons/fc";
 import { useHistory, useLocation } from "react-router";
 
 if (firebase.apps.length === 0) {
@@ -53,12 +52,12 @@ const Login = () => {
       });
   };
 
-  
-
   return ( 
-      <div className="text-center my-5 py-5 login-area">
+      <div className="text-center my-5 py-5 login-area shadow p-3 mb-5 bg-body rounded">
+        <h3 className="mb-5 fw-bold">City Electric</h3>
+        <h4 className="text-center mb-4">Login With</h4>
         <button onClick={handleGoogleSignIn} className="google-btn">
-          <FontAwesomeIcon className="google-icon" icon={faGoogle} /> Continue
+          <FcGoogle /> Continue
           With Google
         </button>
       </div>

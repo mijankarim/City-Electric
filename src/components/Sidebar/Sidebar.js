@@ -1,8 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faList } from "@fortawesome/free-solid-svg-icons";
+import { FaTasks, FaList, FaPlus } from 'react-icons/fa';
+import { BsFillPersonPlusFill } from "react-icons/bs";
+import { RiChatQuoteLine } from "react-icons/ri";
+import { FiShoppingCart } from "react-icons/fi";
 import { UserContext } from "../../App";
+import './Sidebar.css';
 
 const Sidebar = () => {
   const [loggedInUser] = useContext(UserContext);
@@ -20,43 +23,50 @@ const Sidebar = () => {
 
   return (
     <div className="sidebar">
-      <h3 className="pl-2 pt-3">
-        <Link to="/">City Electric</Link>
+      <h3 className="pl-2  mb-5">
+        <Link to="/" className="site-title">City Electric</Link>
       </h3>
-      <ul>
+      <ul className="sidebar-links">
         {isAdmin ? (
           <>
           <li>
               <Link to="/ordersList">
-                <FontAwesomeIcon icon={faList} /> Order List
-              </Link>
-            </li>
-            <li>
-              <Link to="/manageServices">
-                <FontAwesomeIcon icon={faList} /> Manage Services
+                <FaList /> Order List
               </Link>
             </li>
             <li>
               <Link to="/addService">
-                <FontAwesomeIcon icon={faPlus} /> Add Service
+                <FaPlus /> Add Service
+              </Link>
+            </li>
+            
+            <li>
+              <Link to="/addAdmin">
+                <BsFillPersonPlusFill /> Make Admin
               </Link>
             </li>
             <li>
-              <Link to="/addAdmin">
-                <FontAwesomeIcon icon={faPlus} /> Add Admin
+              <Link to="/manageServices">
+                <FaTasks /> Manage Services
               </Link>
             </li>
           </>
         ) : (
           <>
+          <li>
+              <Link to="/orders">
+                <FiShoppingCart /> Book
+              </Link>
+            </li>
+
             <li>
               <Link to="/orders">
-                <FontAwesomeIcon icon={faList} /> Orders
+                <FaList /> Booking List
               </Link>
             </li>
             <li>
               <Link to="/addReview">
-                <FontAwesomeIcon icon={faPlus} /> Review
+                <RiChatQuoteLine /> Review
               </Link>
             </li>
           </>

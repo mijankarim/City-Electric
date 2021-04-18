@@ -35,7 +35,7 @@ const AddService = () => {
         description: data.serviceDescription,
         image: imageURL,
       };
-      const url = `https://glacial-headland-56185.herokuapp.com/addService`;
+      const url = `http://localhost:5050/addService`;
       fetch(url, {
         method: "POST",
         headers: {
@@ -55,12 +55,12 @@ const AddService = () => {
     }
   
     return (
-      <Container>
+      <Container className="mt-5 dashboard">
         <Row>
-          <Col sm={4}>
+          <Col sm={3}>
             <Sidebar/>
           </Col>
-        <Col sm={8}>
+        <Col sm={9} className="py-5">
         <form onSubmit={handleSubmit(onSubmit)}>
           <Container>
             <Row>
@@ -108,7 +108,7 @@ const AddService = () => {
                 <label>Upload Image</label>
                 <br />
                 <input
-                  className="form-control"
+                  className="form-control file-upload"
                   name="serviceImage"
                   type="file"
                   onChange={handleImageUpload}
@@ -118,8 +118,8 @@ const AddService = () => {
                 {errors.serviceImage && <span>This field is required</span>}
               </Col>
             </Row>
-            <Button className="float-right my-3 food-btn" type="submit">
-              Save
+            <Button className="my-3" type="submit">
+              Submit
             </Button>
             {success && (
               <h4 className="text-success w-100 text-center mt-5">

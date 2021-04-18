@@ -42,8 +42,8 @@ const CheckoutForm = ({ service }) => {
   const options = useOptions();
   const [paymentError, setPaymentError] = useState(null);
   const [paymentSuccess, setPaymentSuccess] = useState(null);
-  const [success, setSuccess] = useState(false);
   const { title, price, description, image } = service;
+  const { userName, email } = loggedInUser;
 
   const handlePayment = async (data, event) => {
     event.preventDefault();
@@ -67,7 +67,8 @@ const CheckoutForm = ({ service }) => {
         price,
         description,
         image,
-        ...loggedInUser,
+        userName,
+        email,
         status: "pending",
         paymentId: payload.paymentMethod.id,
         cardBrand: payload.paymentMethod.card.brand,
@@ -84,66 +85,92 @@ const CheckoutForm = ({ service }) => {
         .then((res) => res.json())
         .then((data) => {
           if (data) {
-            setSuccess(true);
           }
         });
     }
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit(handlePayment)}>
-        <label>Your Name</label>
-        <br />
-        <input
-          className="form-control"
-          name="userName"
-          value={`${loggedInUser.userName}`}
-          ref={register({ required: true })}
-          readOnly
-        />
-        <label>Your Email</label>
-        <br />
-        <input
-          className="form-control"
-          name="email"
-          value={`${loggedInUser.email}`}
-          ref={register({ required: true })}
-          readOnly
-        />
-        <label>Your Service</label>
-        <br />
-        <input
-          className="form-control"
-          name="serviceName"
-          value={`${title}`}
-          ref={register({ required: true })}
-          readOnly
-        />
-        <label>
-          Card number
-          <CardNumberElement options={options} />
-        </label>
-        <br />
-        <label>
-          Expiration date
-          <CardExpiryElement options={options} />
-        </label>
-        <br />
-        <label>
-          CVC
-          <CardCvcElement options={options} />
-        </label>
-        <br />
-        <button type="submit" disabled={!stripe}>
-          Pay
-        </button>
+    <Container>
+      <form onSubmit={handleSubmit(handlePayment)} className="checkout-form">
+        <Row>
+          <Col>
+            <label>Your Name</label>
+            <br />
+            <input
+              className="form-control"
+              name="userName"
+              value={`${loggedInUser.userName}`}
+              ref={register({ required: true })}
+              readOnly
+            />
+          </Col>
+          <Col>
+            <label>Your Email</label>
+            <br />
+            <input
+              className="form-control"
+              name="email"
+              value={`${loggedInUser.email}`}
+              ref={register({ required: true })}
+              readOnly
+            />
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <label>Your Service</label>
+            <br />
+            <input
+              className="form-control"
+              name="serviceName"
+              value={`${title}`}
+              ref={register({ required: true })}
+              readOnly
+            />
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <label>
+              Card number
+              <CardNumberElement options={options} />
+            </label>
+          </Col>
+
+          <Col>
+            <label>
+              Expiration date
+              <CardExpiryElement options={options} />
+            </label>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            {" "}
+            <label>
+              CVC
+              <CardCvcElement options={options} />
+            </label>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col>
+            <p className="mt-2">Your Service Change Will be ${price}</p>
+          </Col>
+          <Col>
+            <Button type="submit" disabled={!stripe} className="float-right">
+              Pay Now
+            </Button>
+          </Col>
+        </Row>
       </form>
       {paymentError && <p>{paymentError}</p>}
       {paymentSuccess && (
         <p style={{ color: "green" }}>Thank you for your order</p>
       )}
-    </>
+    </Container>
   );
 };
 

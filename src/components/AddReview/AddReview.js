@@ -9,14 +9,14 @@ const AddReview = () => {
   const [loggedInUser] = useContext(UserContext);
   const { register, handleSubmit, errors } = useForm();
   const [success, setSuccess] = useState(false);
-  console.log(loggedInUser)
+  console.log(loggedInUser);
   const onSubmit = (data, e) => {
     e.target.reset();
     const reviewData = {
       name: data.name,
       companyName: data.companyName,
       description: data.description,
-      image: loggedInUser.image
+      image: loggedInUser.image,
     };
     const url = `https://glacial-headland-56185.herokuapp.com/addReview`;
     fetch(url, {
@@ -37,16 +37,16 @@ const AddReview = () => {
   };
 
   return (
-    <Container>
+    <Container className="dashboard mt-5">
       <Row>
-        <Col sm={4}>
+        <Col sm={3}>
           <Sidebar />
         </Col>
-        <Col sm={8}>
+        <Col sm={9} className="py-5">
           <form onSubmit={handleSubmit(onSubmit)}>
             <Container>
               <Row>
-                <h3 className="mb-3 ml-3">Add Review</h3>
+                <h3 className="mb-3 ml-3">Review</h3>
               </Row>
               <Row className="mb-3">
                 <Col>
@@ -87,12 +87,12 @@ const AddReview = () => {
                   {errors.description && <span>This field is required</span>}
                 </Col>
               </Row>
-              <Button className="float-right my-3 food-btn" type="submit">
-                Save
+              <Button className="my-3" type="submit">
+                Submit
               </Button>
               {success && (
                 <h4 className="text-success w-100 text-center mt-5">
-                  Review saved Successfully.
+                  Review Submitted Successfully.
                 </h4>
               )}
             </Container>

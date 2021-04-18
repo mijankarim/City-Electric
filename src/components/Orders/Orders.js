@@ -15,17 +15,17 @@ const Orders = () => {
       .then((res) => res.json())
       .then((data) => {
         setOrders(data);
-        console.log(data);
         setIsLoading(false);
       });
   }, [email]);
+
   return (
-    <Container>
+    <Container className="mt-5 dashboard">
       <Row>
-        <Col sm={4}>
+        <Col sm={3}>
           <Sidebar />
-        </Col>{" "}
-        <Col sm={8}>
+        </Col>
+        <Col sm={9}>
           <Container className="bg-light py-5">
             
             {isLoading ? (
