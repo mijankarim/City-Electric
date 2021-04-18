@@ -43,10 +43,10 @@ const CheckoutForm = ({ service }) => {
   const [paymentError, setPaymentError] = useState(null);
   const [paymentSuccess, setPaymentSuccess] = useState(null);
   const [success, setSuccess] = useState(false);
-  const { title, price } = service;
-  
+  const { title, price, description, image } = service;
+
   const handlePayment = async (data, event) => {
-    event.preventDefault(); 
+    event.preventDefault();
     if (!stripe || !elements) {
       return;
     }
@@ -55,41 +55,40 @@ const CheckoutForm = ({ service }) => {
       type: "card",
       card: elements.getElement(CardNumberElement),
     });
-    console.log("[PaymentMethod]", payload);
+
     if (payload.error) {
       setPaymentError(payload.error.message);
       setPaymentSuccess(null);
     } else {
       setPaymentSuccess(payload.paymentMethod.id);
       setPaymentError(null);
-
-    }
-    
-    const orderDetails = {
-      ...loggedInUser,
-      ...service,
-      paymentId: paymentSuccess 
-    };
+      const orderDetails = {
+        title,
+        price,
+        description,
+        image,
+        ...loggedInUser,
+        status: "pending",
+        paymentId: payload.paymentMethod.id,
+        cardBrand: payload.paymentMethod.card.brand,
+        last4: payload.paymentMethod.card.last4,
+      };
 
       fetch("https://glacial-headland-56185.herokuapp.com/addOrder", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(orderDetails)
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data) {
-          setSuccess(true);
-        }
-      });
-      console.log(orderDetails); 
-
-
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(orderDetails),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data) {
+            setSuccess(true);
+          }
+        });
+    }
   };
-
-  console.log(loggedInUser);
 
   return (
     <>

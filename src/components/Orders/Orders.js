@@ -40,9 +40,11 @@ const Orders = () => {
                       <h3>No Orders Found</h3>
                     </div>
                   ) : (
-                    orders.map((order, index) => (
+                    <Row>
+                    {orders.map((order, index) => (
                       <Order order={order} key={index} index={index} />
-                    ))
+                    ))}
+                    </Row>
                   )}
                 </Col>
               </Row>

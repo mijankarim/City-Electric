@@ -38,7 +38,7 @@ const Login = () => {
           email: email,
           image: photoURL
         };
-        setUserToken();
+        
         setUser(signedInUser);
         setLoggedInUser(signedInUser);
         history.replace(from);
@@ -53,13 +53,7 @@ const Login = () => {
       });
   };
 
-  const setUserToken = () => {
-    firebase.auth().currentUser.getIdToken(true).then(function(idToken) {
-      sessionStorage.setItem('token', idToken);
-    }).catch(function(error) {
-      
-    });
-  }
+  
 
   return ( 
       <div className="text-center my-5 py-5 login-area">
