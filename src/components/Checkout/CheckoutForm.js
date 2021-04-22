@@ -124,7 +124,7 @@ const CheckoutForm = ({ service }) => {
             <input
               className="form-control"
               name="serviceName"
-              defaultValue={`${title}`  || 'Electrical installation'}
+              value={`${title}`}
               ref={register({ required: true })}
               
             />

@@ -54,7 +54,7 @@ const Sidebar = () => {
         ) : (
           <>
           <li>
-              <Link to="/orders">
+              <Link to="/checkout/60796c1bab384e5ba8fdd496">
                 <FiShoppingCart /> Book
               </Link>
             </li>

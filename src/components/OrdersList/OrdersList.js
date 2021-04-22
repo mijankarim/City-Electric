@@ -102,7 +102,7 @@ const OrdersList = () => {
                                 <option value="Done">Done</option>
                               </select>
                             </td>
-                            <td></td>
+                            
                           </tr>
                         ))}
                       </tbody>

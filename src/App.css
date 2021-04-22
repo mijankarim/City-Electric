@@ -11,6 +11,15 @@ body {
   background: #F8F9FA;
 }
 
+.dashboard .table  #status{
+  background: transparent;
+  border:0;
+}
+
+.dashboard .table  #status:focus{
+  outline:0 !important;
+}
+
 .alternative-bg{
   background: #F8F9FA;
 }
