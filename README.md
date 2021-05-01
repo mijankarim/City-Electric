@@ -1,6 +1,9 @@
 # City Electric Full Stack App
+### [Live Site Link](https://city-electric.web.app)
 
-City Electric is a MERN stack app using React js, Express js, firebase authentication and mongodb, stripe payment etc.
+City Electric is a MERN stack single page web app where user can book the services . User can leave review on services from dashboard. 
+Admin can add new services and can manage the services  from dashboard. Admin can also add a new user as a admin.
+Admin can see all order booked by user and able to change the order status from dashboard
 
 ## React packages used on this app
 * React Router
@@ -10,4 +13,3 @@ City Electric is a MERN stack app using React js, Express js, firebase authentic
 * React Hook Form
 * Firebase
 
-### [Live Site Link](https://city-electric.web.app)
