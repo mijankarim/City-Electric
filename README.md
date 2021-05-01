@@ -5,7 +5,11 @@ City Electric is a MERN stack single page web app where user can book the servic
 Admin can add new services and can manage the services  from dashboard. Admin can also add a new user as a admin.
 Admin can see all order booked by user and able to change the order status from dashboard
 
-## React packages used on this app
+## Built With
+* Node Js
+* Express
+* MongoDB
+* React JS
 * React Router
 * React Bootstrap
 * Axios
